@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import Button from 'react-bootstrap/Button';
 import NasaModal from './NasaModal';
+import "./ScrollExample.scss"
 
 const ScrollamaDemo = () => {
     const [hasInteracted, setHasInteracted] = useState(false); 
@@ -109,33 +110,24 @@ const ScrollamaDemo = () => {
 
     if (!hasInteracted) {
         return (
-            <div 
-                style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: '100vw',
-                    height: '100vh',
-                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    zIndex: 100, // Asegura que esté encima de todo
-                    color: 'white',
-                    textAlign: 'center'
-                }}
-            >
-                <h2>Bienvenido a la Historia de Inti</h2>
-                <p>Haz clic en "Comenzar" para habilitar la reproducción de audio sincronizada con el scroll.</p>
-                <Button 
-                    variant="primary" 
-                    size="lg"
-                    onClick={() => setHasInteracted(true)}
-                    style={{ marginTop: '20px' }}
-                >
-                    Comenzar Experiencia ☀️
-                </Button>
+            <div className='vistaPrincipal'>
+                <div></div>
+                <div className=' vistaPrincipal__container'>
+                  <div className='w-75 info d-flex flex-column align-items-start justify-content-start gap-4'>
+                    <img src="./logo-a-solar-tale.png" />
+                    <p className='m-0 p-0 text-start text-dark'>A digital storytelling experience inspired by the NASA Space Apps 
+                      Challenge 2025 — "Stellar Stories: Space Weather Through the Eyes of Earthlings".
+                    </p>
+                    <Button className='btn btnStart' size="lg" onClick={() => setHasInteracted(true)}>
+                      Watch the experience ☀️
+                    </Button>
+                  </div>
+                  <div className='github d-flex align-items-start justify-content-end'>
+                    <a className='btnGithub' target='_blank' href="https://github.com/AliceRamirez17/the-sun-whispers">
+                      <img src='./logo-github.png' alt='github repository'/>
+                    </a>
+                  </div>
+                </div>
             </div>
         );
     }

@@ -1,0 +1,72 @@
+
+.vistaPrincipal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto 60%;
+    z-index: 100;
+    color: #fff;
+    text-align: center;
+    background-image: url('./portada.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 240px;
+
+        .info {
+            padding: 120px 0;
+
+            img {
+                width: 240px;
+            }
+
+            .btnStart {
+                background-color: #CD441F;
+                border: none;
+                border-radius: 100px;
+                transition: transform 0.3s ease-in-out; 
+                transform: scale(1);
+            }
+
+            .btnStart:hover {
+                transform: scale(1.1);
+                background-color: #9d3113;
+            }
+
+            .btnStart:active{
+                transform: scale(1);
+                background-color: #CD441F !important;
+                color: #fff;
+            }
+        }
+
+        .github {
+            padding: 20px;
+
+            .btnGithub {
+                transition: transform 0.3s ease-in-out; 
+                transform: scale(1);
+            }
+
+            .btnGithub:hover {
+                transform: scale(1.1);
+            }
+
+            .btnGithub:active {
+                transform: scale(1);
+            }
+
+            img {
+                width: 120px;
+            }
+            
+        }
+        
+    }
+}
