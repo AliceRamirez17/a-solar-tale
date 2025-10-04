@@ -4,13 +4,11 @@ import Button from 'react-bootstrap/Button';
 import NasaModal from './NasaModal';
 
 const ScrollamaDemo = () => {
-    // 💥 NUEVO ESTADO: Rastrea si el usuario ha interactuado
     const [hasInteracted, setHasInteracted] = useState(false); 
     const [currentStepIndex, setCurrentStepIndex] = useState(null);
     const [modalData, setModalData] = useState({ isOpen: false, content: {} });
     const audioRef = useRef(null);
 
-    // ... (handleOpenModal, handleCloseModal, onStepEnter sin cambios) ...
     const handleOpenModal = useCallback((content) => {
         if (audioRef.current) {
             audioRef.current.pause();
@@ -35,17 +33,17 @@ const ScrollamaDemo = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const audios = [
-        '/src/assets/audio1.mp3',
-        '/src/assets/audio2.mp3',
-        '/src/assets/audio3.mp3',
-        '/src/assets/audio4.mp3',
+        '/public/audio1.mp3',
+        '/public/audio2.mp3',
+        '/public/audio3.mp3',
+        '/public/audio4.mp3',
     ];
 
     const imagenes = [
-        '/src/assets/INCAS.png',
-        '/src/assets/EGIPTO.png',
-        '/src/assets/GRECIA.png',
-        '/src/assets/JAPAN.png',
+        '/public/INCAS.png',
+        '/public/EGIPTO.png',
+        '/public/GRECIA.png',
+        '/public/JAPAN.png',
     ];
 
     const nasaData = [
@@ -56,7 +54,6 @@ const ScrollamaDemo = () => {
     ];
 
     useEffect(() => {
-        // 💥 CAMBIO CLAVE: Solo intentar reproducir si hasInteracted es TRUE
         if (hasInteracted && currentStepIndex !== null && audioRef.current && audios[currentStepIndex]) {
             const audioEl = audioRef.current;
             const newSrc = audios[currentStepIndex];
@@ -84,7 +81,7 @@ const ScrollamaDemo = () => {
             }
         };
 
-    }, [currentStepIndex, audios, modalData.isOpen, hasInteracted]); // Agregamos hasInteracted como dependencia
+    }, [currentStepIndex, audios, modalData.isOpen, hasInteracted]);
 
     const renderNasaButton = () => {
         if (currentStepIndex !== null && nasaData[currentStepIndex]) {
@@ -110,9 +107,6 @@ const ScrollamaDemo = () => {
         return null;
     };
 
-    // ----------------------------------------------------
-    // 💥 NUEVO COMPONENTE: Pantalla de Bienvenida
-    // ----------------------------------------------------
     if (!hasInteracted) {
         return (
             <div 
@@ -137,7 +131,7 @@ const ScrollamaDemo = () => {
                 <Button 
                     variant="primary" 
                     size="lg"
-                    onClick={() => setHasInteracted(true)} // 💥 Al hacer clic, habilitamos la interacción
+                    onClick={() => setHasInteracted(true)}
                     style={{ marginTop: '20px' }}
                 >
                     Comenzar Experiencia ☀️
@@ -145,12 +139,7 @@ const ScrollamaDemo = () => {
             </div>
         );
     }
-    // ----------------------------------------------------
-    // FIN NUEVO COMPONENTE
-    // ----------------------------------------------------
 
-
-    // El resto de la aplicación se renderiza solo si hasInteracted es TRUE
     return (
         <div style={{ position: 'relative' }}>
 
