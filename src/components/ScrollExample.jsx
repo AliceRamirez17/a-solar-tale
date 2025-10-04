@@ -26,31 +26,35 @@ const ScrollamaDemo = () => {
     };
 
     const textos = [
-        "They call me Inti in the Andes,",
-        "Ra in ancient Egypt,",
-        "Helios to the Greeks,",
-        "Amaterasu in the land of the rising sun"
+        "I am the sun. But I have also been Inti...",
+        "For some, I have been Ra...",
+        "Others have known me as Amaterasu...",
+        "And many others named me Helios.",
+        "I've been called so many things: Surya, Tonatiuh, Sol Invictus. In the eyes of history, I've been a god, a star, a guide, and a mystery. But I'm just a star with a fire that burns tirelessly. I'm not eternal, but I'm millions of years old. Today, I come without any disguise to tell a part of my story."
     ];
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const audios = [
-        '/audio1.mp3',
-        '/audio2.mp3',
-        '/audio3.mp3',
-        '/audio4.mp3',
+        '/audio1.m4a',
+        '/audio2.m4a',
+        '/audio3.m4a',
+        '/audio4.m4a',
+        '/audio5.m4a'
     ];
 
     const imagenes = [
         '/INCAS.png',
         '/EGIPTO.png',
-        '/GRECIA.png',
         '/JAPAN.png',
+        '/GRECIA.png',
+        '/solyplanetas.gif'
     ];
 
     const nasaData = [
         { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'video 1', caption: 'caption 1' },
         { src: 'https://science.nasa.gov/wp-content/uploads/2024/07/animated-gif-x28-oct2003.gif', alt: 'video 2', caption: 'caption 2' },
         { src: 'https://science.nasa.gov/wp-content/uploads/2024/05/x1pt7-flare-may-14-2024-crop-banner.mp4', alt: 'video 3', caption: 'caption 3' },
+        { src: 'https://science.nasa.gov/wp-content/uploads/2024/09/solar-max-min.mp4', alt: 'video 4', caption: 'caption 4' },
         { src: 'https://science.nasa.gov/wp-content/uploads/2024/09/solar-max-min.mp4', alt: 'video 4', caption: 'caption 4' },
     ];
 
@@ -87,20 +91,7 @@ const ScrollamaDemo = () => {
     const renderNasaButton = () => {
         if (currentStepIndex !== null && nasaData[currentStepIndex]) {
             return (
-                <Button
-                    variant="secondary"
-                    onClick={() => handleOpenModal(nasaData[currentStepIndex])}
-                    style={{
-                        position: 'absolute',
-                        top: '50px',
-                        left: '50px',
-                        zIndex: 20,
-                        fontSize: '1rem',
-                        padding: '10px 20px',
-                        transition: 'opacity 0.3s ease',
-                        opacity: 1,
-                    }}
-                >
+                <Button className='btnNasa' onClick={() => handleOpenModal(nasaData[currentStepIndex])}>
                     Ver Data de la NASA 🚀
                 </Button>
             );
@@ -133,7 +124,7 @@ const ScrollamaDemo = () => {
     }
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div className='vistaCuento' >
 
             <audio ref={audioRef} />
 
@@ -144,39 +135,10 @@ const ScrollamaDemo = () => {
                 content={modalData.content}
             />
             {/* Ilustraciones */}
-            <div
-                style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    height: '100vh',
-                    width: '100vw',
-                    zIndex: 1,
-                }}
-            >
-                <div
-                    style={{
-                        position: 'relative',
-                        width: '100%',
-                        height: '100%',
-                    }}
-                >
+            <div className='vistaCuento__container'>
+                <div className='vistaCuento__container--img'>
                     {imagenes.map((src, index) => (
-                        <img
-                            key={index}
-                            src={src}
-                            alt={`Imagen ${index}`}
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'contain', 
-                                transition: 'opacity 0.8s ease-in-out',
-                                opacity: currentStepIndex === index ? 1 : 0,
-                            }}
-                        />
+                        <img key={index} src={src} alt={`Imagen ${index}`} style={{ opacity: currentStepIndex === index ? 1 : 0 }}/>
                     ))}
 
                     {renderNasaButton()}
@@ -184,38 +146,12 @@ const ScrollamaDemo = () => {
                 </div>
             </div>
             {/* Scroll con textos */}
-            <div
-                style={{
-                    position: 'relative',
-                    zIndex: 10,
-                    width: '40vw',
-                    marginLeft: '50vw',
-                }}
-            >
+            <div className='vistaCuento__scroll'>
                 <Scrollama offset={0.5} onStepEnter={onStepEnter}>
                     {textos.map((txt, index) => (
                         <Step data={index} key={index}>
-                            <div
-                                style={{
-                                    minHeight: '150vh',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    padding: '20px',
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        fontSize: '1.5rem',
-                                        textAlign: 'center',
-                                        backgroundColor: 'rgba(255, 255, 255, 0.85)',
-                                        padding: '20px 40px',
-                                        borderRadius: '10px',
-                                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                                        maxWidth: '80%',
-                                        fontFamily: 'Arial, sans-serif'
-                                    }}
-                                >
+                            <div className='vistaCuento__scroll__steps'>
+                                <div className='vistaCuento__scroll__steps--text'>
                                     {txt}
                                 </div>
                             </div>
