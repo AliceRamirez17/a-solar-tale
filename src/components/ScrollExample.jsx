@@ -33,17 +33,17 @@ const ScrollamaDemo = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const audios = [
-        '/public/audio1.mp3',
-        '/public/audio2.mp3',
-        '/public/audio3.mp3',
-        '/public/audio4.mp3',
+        '/audio1.mp3',
+        '/audio2.mp3',
+        '/audio3.mp3',
+        '/audio4.mp3',
     ];
 
     const imagenes = [
-        '/public/INCAS.png',
-        '/public/EGIPTO.png',
-        '/public/GRECIA.png',
-        '/public/JAPAN.png',
+        '/INCAS.png',
+        '/EGIPTO.png',
+        '/GRECIA.png',
+        '/JAPAN.png',
     ];
 
     const nasaData = [
