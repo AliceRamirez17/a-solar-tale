@@ -1,91 +1,249 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
+import Button from 'react-bootstrap/Button';
+import NasaModal from './NasaModal';
 
 const ScrollamaDemo = () => {
-  const [currentStepIndex, setCurrentStepIndex] = useState(null);
+    // 💥 NUEVO ESTADO: Rastrea si el usuario ha interactuado
+    const [hasInteracted, setHasInteracted] = useState(false); 
+    const [currentStepIndex, setCurrentStepIndex] = useState(null);
+    const [modalData, setModalData] = useState({ isOpen: false, content: {} });
+    const audioRef = useRef(null);
 
-  const onStepEnter = ({ data }) => {
-    setCurrentStepIndex(data);
-  };
+    // ... (handleOpenModal, handleCloseModal, onStepEnter sin cambios) ...
+    const handleOpenModal = useCallback((content) => {
+        if (audioRef.current) {
+            audioRef.current.pause();
+        }
+        setModalData({ isOpen: true, content });
+    }, []);
 
-  const textos = [
-    "Texto 1",
-    "Texto 2",
-    "Texto 3",
-    "Texto 4"
-  ];
+    const handleCloseModal = useCallback(() => {
+        setModalData({ isOpen: false, content: {} });
+    }, []);
 
-  const imagenes = [
-    '/src/assets/INCAS.png',
-    '/src/assets/EGIPTO.png',
-    '/src/assets/JAPAN.png',
-    '/src/assets/GRECIA.png'
-  ];
+    const onStepEnter = ({ data }) => {
+        setCurrentStepIndex(data);
+    };
 
-  return (
-    <div style={{ display: 'flex' }}>
-      
-      {/* ✅ COLUMNA FIJA CON IMÁGENES */}
-      <div
-        style={{
-          position: 'sticky',
-          top: 0,
-          height: '100vh',
-          width: '100vw',
-        }}
-      >
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          {imagenes.map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              alt={`Imagen ${index}`}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transition: 'opacity 0.5s ease',
-                opacity: currentStepIndex === index ? 1 : 0,
-              }}
-            />
-          ))}
-        </div>
-      </div>
+    const textos = [
+        "They call me Inti in the Andes,",
+        "Ra in ancient Egypt,",
+        "Helios to the Greeks,",
+        "Amaterasu in the land of the rising sun"
+    ];
 
-      {/* ✅ COLUMNA SCROLL CON TEXTO */}
-      <div
-        style={{
-          width: '100vw',
-          marginLeft: 'auto',
-        }}
-      >
-        <Scrollama offset={0.5} onStepEnter={onStepEnter}>
-          {textos.map((txt, index) => (
-            <Step data={index} key={index}>
-              <div
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const audios = [
+        '/src/assets/audio1.mp3',
+        '/src/assets/audio2.mp3',
+        '/src/assets/audio3.mp3',
+        '/src/assets/audio4.mp3',
+    ];
+
+    const imagenes = [
+        '/src/assets/INCAS.png',
+        '/src/assets/EGIPTO.png',
+        '/src/assets/GRECIA.png',
+        '/src/assets/JAPAN.png',
+    ];
+
+    const nasaData = [
+        { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'video 1', caption: 'caption 1' },
+        { src: 'https://science.nasa.gov/wp-content/uploads/2024/07/animated-gif-x28-oct2003.gif', alt: 'video 2', caption: 'caption 2' },
+        { src: 'https://science.nasa.gov/wp-content/uploads/2024/05/x1pt7-flare-may-14-2024-crop-banner.mp4', alt: 'video 3', caption: 'caption 3' },
+        { src: 'https://science.nasa.gov/wp-content/uploads/2024/09/solar-max-min.mp4', alt: 'video 4', caption: 'caption 4' },
+    ];
+
+    useEffect(() => {
+        // 💥 CAMBIO CLAVE: Solo intentar reproducir si hasInteracted es TRUE
+        if (hasInteracted && currentStepIndex !== null && audioRef.current && audios[currentStepIndex]) {
+            const audioEl = audioRef.current;
+            const newSrc = audios[currentStepIndex];
+
+            if (audioEl.src !== newSrc) {
+                audioEl.src = newSrc;
+            }
+
+            audioEl.pause();
+            audioEl.currentTime = 0;
+
+            setTimeout(() => {
+                if (!modalData.isOpen) {
+                    audioEl.play().catch(error => {
+                      console.log("La reproducción automática falló. Interacción requerida.");
+                      console.log(error)
+                    });
+                }
+            }, 100);
+        }
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+            }
+        };
+
+    }, [currentStepIndex, audios, modalData.isOpen, hasInteracted]); // Agregamos hasInteracted como dependencia
+
+    const renderNasaButton = () => {
+        if (currentStepIndex !== null && nasaData[currentStepIndex]) {
+            return (
+                <Button
+                    variant="secondary"
+                    onClick={() => handleOpenModal(nasaData[currentStepIndex])}
+                    style={{
+                        position: 'absolute',
+                        top: '50px',
+                        left: '50px',
+                        zIndex: 20,
+                        fontSize: '1rem',
+                        padding: '10px 20px',
+                        transition: 'opacity 0.3s ease',
+                        opacity: 1,
+                    }}
+                >
+                    Ver Data de la NASA 🚀
+                </Button>
+            );
+        }
+        return null;
+    };
+
+    // ----------------------------------------------------
+    // 💥 NUEVO COMPONENTE: Pantalla de Bienvenida
+    // ----------------------------------------------------
+    if (!hasInteracted) {
+        return (
+            <div 
                 style={{
-                  margin: '50vh 0',
-                  fontSize: '1.5rem',
-                  padding: '20px',
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 100, // Asegura que esté encima de todo
+                    color: 'white',
+                    textAlign: 'center'
                 }}
-              >
-                {txt}
-              </div>
-            </Step>
-          ))}
-        </Scrollama>
-      </div>
-    </div>
-  );
+            >
+                <h2>Bienvenido a la Historia de Inti</h2>
+                <p>Haz clic en "Comenzar" para habilitar la reproducción de audio sincronizada con el scroll.</p>
+                <Button 
+                    variant="primary" 
+                    size="lg"
+                    onClick={() => setHasInteracted(true)} // 💥 Al hacer clic, habilitamos la interacción
+                    style={{ marginTop: '20px' }}
+                >
+                    Comenzar Experiencia ☀️
+                </Button>
+            </div>
+        );
+    }
+    // ----------------------------------------------------
+    // FIN NUEVO COMPONENTE
+    // ----------------------------------------------------
+
+
+    // El resto de la aplicación se renderiza solo si hasInteracted es TRUE
+    return (
+        <div style={{ position: 'relative' }}>
+
+            <audio ref={audioRef} />
+
+            {/* Modal con imágenes reales de la NASA */}
+            <NasaModal
+                show={modalData.isOpen}
+                handleClose={handleCloseModal}
+                content={modalData.content}
+            />
+            {/* Ilustraciones */}
+            <div
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    height: '100vh',
+                    width: '100vw',
+                    zIndex: 1,
+                }}
+            >
+                <div
+                    style={{
+                        position: 'relative',
+                        width: '100%',
+                        height: '100%',
+                    }}
+                >
+                    {imagenes.map((src, index) => (
+                        <img
+                            key={index}
+                            src={src}
+                            alt={`Imagen ${index}`}
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain', 
+                                transition: 'opacity 0.8s ease-in-out',
+                                opacity: currentStepIndex === index ? 1 : 0,
+                            }}
+                        />
+                    ))}
+
+                    {renderNasaButton()}
+
+                </div>
+            </div>
+            {/* Scroll con textos */}
+            <div
+                style={{
+                    position: 'relative',
+                    zIndex: 10,
+                    width: '40vw',
+                    marginLeft: '50vw',
+                }}
+            >
+                <Scrollama offset={0.5} onStepEnter={onStepEnter}>
+                    {textos.map((txt, index) => (
+                        <Step data={index} key={index}>
+                            <div
+                                style={{
+                                    minHeight: '150vh',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    padding: '20px',
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        fontSize: '1.5rem',
+                                        textAlign: 'center',
+                                        backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                                        padding: '20px 40px',
+                                        borderRadius: '10px',
+                                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                                        maxWidth: '80%',
+                                        fontFamily: 'Arial, sans-serif'
+                                    }}
+                                >
+                                    {txt}
+                                </div>
+                            </div>
+                        </Step>
+                    ))}
+                </Scrollama>
+            </div>
+        </div>
+    );
 };
 
 export default ScrollamaDemo;
