@@ -127,7 +127,7 @@ const ScrollamaDemo = () => {
     if (!slide || !slide.nasa) return null;
     return (
         <Button variant="link" className="btnNasa" onClick={() => handleOpenModal(slide.nasa)}>
-            <img src="./ARIA-BOTON2.gif" alt="Aria" className="gif-aria" />
+            <img src="./ARIA-BOTON3.gif" alt="Aria" className="gif-aria" />
         </Button>
     );
   };
@@ -139,7 +139,7 @@ const ScrollamaDemo = () => {
   };
 
   const currentChapter = getCurrentChapter(currentStepIndex);
-  const currentSlide = getCurrentSlide(currentStepIndex);
+  // const currentSlide = getCurrentSlide(currentStepIndex);
 
   if (!hasInteracted) {
     return (
@@ -181,9 +181,14 @@ const ScrollamaDemo = () => {
       {/* Imagen actual (fondo fijo) */}
       <div className='vistaCuento__container'>
         <div className='vistaCuento__container--img'>
-          {currentSlide && (
-            <img src={currentSlide.img} alt="Slide visual" style={{ opacity: 1 }} />
-          )}
+          {allSlides.map((slide, idx) => (
+            <img
+              key={idx}
+              src={slide.img}
+              alt="Slide visual"
+              className={`slide-image ${idx === currentStepIndex ? "active" : ""}`}
+            />
+          ))}
           {renderNasaButton()}
         </div>
       </div>
