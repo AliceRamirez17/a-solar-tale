@@ -96,15 +96,60 @@ const chapters = [
     title: '/chapter4/chapter4.png',
     slides: [
       { text: "", img: "/chapter4/chapter4.png", audio: "", nasa: null },
-      { text: "I am the sun.", img: "/chapter4/sol.png", audio: "/chapter4/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter4/sol.png", audio: "/chapter4/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter4/sol.png", audio: "/chapter4/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } }
+      { 
+        text: "I learned that space weather isn’t like the weather we know.", 
+        img: "/chapter4/slide1.png", 
+        audio: "/chapter4/chapter4-audio1.m4a", 
+        nasa: null 
+      },
+      { 
+        text: "It’s not about rain or heat, but about particles, magnetic fields, and energy traveling from the Sun.", 
+        img: "/chapter4/slide2.png", 
+        audio: "/chapter4/chapter4-audio2.m4a", 
+        nasa: null
+      },
+      { 
+        text: "I read about how astronauts prepare for storms.", 
+        img: "/chapter4/slide3.png", 
+        audio: "/chapter4/chapter4-audio3.m4a", 
+        nasa: { 
+          src: 'https://svs.gsfc.nasa.gov/vis/a010000/a012500/a012593/12593_Anthropogenic_Space_WeatherV1.mp4', 
+          alt: 'Human Activity Impacted Space Weather', 
+          caption: 'Sometimes I get a little excited… and I launch a big flare. Boom! A CME, or coronal mass ejection, travels through space.' 
+        } 
+      },
+      { 
+        text: "About the satellites that observe the Sun and teach us about its movement.", 
+        img: "/chapter4/slide4.png", 
+        audio: "/chapter4/chapter4-audio4.m4a", 
+        nasa: { 
+          src: 'https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003847/STEREOnCME_HD1080.webmhd.webm', 
+          alt: 'From the Sun to the Earth: STEREO tracks a CME', 
+          caption: 'But don’t worry, Earth has a protective layer: the magnetosphere. And thanks to science, like that of NASA and NOAA, you can prepare. You can even see it in real time! Amazing, isn’t it?' 
+        } 
+      },
+      { 
+        text: "That way they can warn us if a solar storm is approaching and prevent problems with airplane routes!", 
+        img: "/chapter4/slide5.png", 
+        audio: "/chapter4/chapter4-audio5.m4a", 
+        nasa: { 
+          src: 'https://science.nasa.gov/wp-content/uploads/2024/09/space-weather-effects-esa.jpg', 
+          alt: 'Solar storms can have a variety of effects on Earth and our technology', 
+          caption: 'Did you know that when I’m having a bad day, I can make GPS signals get lost, airplanes experience more radiation, and even cause lights to go out on Earth? I don’t do it on purpose… it’s just that I’m powerful! Luckily, there are people who have studied me for years to understand me better. Thanks to them, my energy can be as useful… as it is dangerous.' 
+        } 
+      },
+      { 
+        text: "By understanding space weather, we can predict all of this.", 
+        img: "/chapter4/slide6.png", 
+        audio: "/chapter4/chapter4-audio6.m4a", 
+        nasa: null
+      }
     ]
   },
   {
     title: '/chapter5/chapter5.png',
     slides: [
-      { text: "", img: "chapter5.png", audio: "", nasa: null },
+      { text: "", img: "/chapter5/chapter5.png", audio: "", nasa: null },
       { text: "I am the sun.", img: "/chapter5/sol.png", audio: "/chapter5/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
       { text: "I am the sun.", img: "/chapter5/sol.png", audio: "/chapter5/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
       { text: "I am the sun.", img: "/chapter5/sol.png", audio: "/chapter5/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
@@ -113,7 +158,7 @@ const chapters = [
   }
 ];
 
-const chapterStartIndices = [0, 8, 14, 19, 23]; // índices donde está el título de cada chapter
+const chapterStartIndices = [0, 8, 14, 19, 26]; // índices donde está el título de cada chapter
 
 const ScrollamaDemo = () => {
   const [hasInteracted, setHasInteracted] = useState(false);
