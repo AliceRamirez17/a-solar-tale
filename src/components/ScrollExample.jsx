@@ -180,7 +180,7 @@ const ScrollamaDemo = () => {
     if (!slide || !slide.nasa) return null;
     return (
         <Button variant="link" className="btnNasa" onClick={() => handleOpenModal(slide.nasa)}>
-            <img src="./ARIA-BOTON3.gif" alt="Aria" className="gif-aria" />
+            <img src="./ARIA-BOTON4.gif" alt="Aria" className="gif-aria" />
         </Button>
     );
   };
