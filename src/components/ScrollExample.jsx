@@ -45,9 +45,9 @@ const chapters = [
         nasa: null 
       },
       { 
-        text: "Text", 
-        img: "/ejemplo.jpg", 
-        audio: "/chapter2/", 
+        text: "Shh! This was a revolutionary moment. Before, they believed everything revolved around Earth… but Copernicus and Galileo looked beyond!", 
+        img: "/chapter2/galileo4.gif", 
+        audio: "/chapter2/chapter2-audio4.m4a", 
         nasa: null 
       },
       { 
