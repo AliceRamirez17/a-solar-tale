@@ -8,7 +8,7 @@ const chapters = [
   {
     title: '/chapter1/chapter1.png',
     slides: [
-      { text: "", img: "/chapter1/chapter1.png", audio: "", nasa: null }, // title slide
+      { text: "", img: "/chapter1/chapter1.png", audio: "", nasa: null },
       { text: "I am the sun.", img: "/chapter1/sol.png", audio: "/chapter1/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology. Scientists use it to study my behavior: when I release solar flares, how they affect Earth, and how to protect people. It’s real science—and also… a little bit of magic.' } },
       { text: "But I have also been Inti...", img: "/chapter1/INCAS.png", audio: "/chapter1/audio2.m4a", nasa: null },
       { text: "For some, I have been Ra...", img: "/chapter1/EGIPTO.png", audio: "/chapter1/audio3.m4a", nasa: null },
@@ -22,21 +22,74 @@ const chapters = [
     title: '/chapter2/chapter2.png',
     slides: [
       { text: "", img: "/chapter2/chapter2.png", audio: "", nasa: null },
-      { text: "I am the sun.", img: "/chapter2/sol.png", audio: "/chapter2/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter2/sol.png", audio: "/chapter2/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter2/sol.png", audio: "/chapter2/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter2/sol.png", audio: "/chapter2/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter2/sol.png", audio: "/chapter2/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } }
+      { 
+        text: "I’ve always been curious about the world around me. That’s how I started looking at the sky, and the Sun caught my attention.", 
+        img: "/chapter2/galileo1.gif", 
+        audio: "/chapter2/chapter2-audio1.m4a", 
+        nasa: null 
+      },
+      { 
+        text: "I saw it clearly. The Sun, our majestic giant, was the center of everything.", 
+        img: "/chapter2/galileo2.png", 
+        audio: "/chapter2/chapter2-audio2.m4a", 
+        nasa: { 
+          src: 'https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004892/SolarMax_AIA1700A_stand.HD1080i_p30.mp4', 
+          alt: 'Faculae and Sunspots at Solar Maximum and Solar Minimum', 
+          caption: 'Ah, Galileo! One of the first humans who truly looked at me closely. He believed I was perfect… until he discovered these spots. I’m not a pristine sphere, but those spots say a lot about me. They’re like traces of my emotions: sometimes active, sometimes calm. Galileo didn’t just observe me… he understood me.' 
+        } 
+      },
+      { 
+        text: "", 
+        img: "/chapter2/galileo3.png", 
+        audio: "/chapter2/chapter2-audio3.mp3", 
+        nasa: null 
+      },
+      { 
+        text: "Text", 
+        img: "/ejemplo.jpg", 
+        audio: "/chapter2/", 
+        nasa: null 
+      },
+      { 
+        text: "The planets danced around it, just as they do to this day.", 
+        img: "/chapter2/galileo5.png", 
+        audio: "/chapter2/chapter2-audio5.m4a", 
+        nasa: { 
+          src: 'https://science.nasa.gov/wp-content/uploads/2023/10/edu-solar-system-large.png', 
+          alt: 'Solar System', 
+          caption: 'There was a time when they believed everything revolved around Earth. But then… surprise! They discovered that I am the one at the center. Copernicus imagined it. Galileo proved it. And since then, we’ve danced this beautiful dance of orbits and time. Welcome to the solar system—my bright neighborhood!' 
+        } 
+      }
     ]
   },
   {
     title: '/chapter3/chapter3.png',
     slides: [
       { text: "", img: "/chapter3/chapter3.png", audio: "", nasa: null },
-      { text: "I am the sun.", img: "/chapter3/sol.png", audio: "/chapter3/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter3/sol.png", audio: "/chapter3/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter3/sol.png", audio: "/chapter3/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter3/sol.png", audio: "/chapter3/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } }
+      { 
+        text: "Sometimes, something inside me stirs. I become a burst of energy: a coronal mass ejection.", 
+        img: "/chapter3/sol1.png", 
+        audio: "/chapter3/chapter3-audio1.m4a", 
+        nasa: null
+      },
+      { 
+        text: "When that happens, a part of me travels toward you.", 
+        img: "/chapter3/aurora2.gif", 
+        audio: "/chapter3/chapter3-audio2.m4a", 
+        nasa: null
+      },
+      { 
+        text: "That morning, colors danced in the sky. The northern lights reached our city.", 
+        img: "/chapter3/aria1.png", 
+        audio: "/chapter3/chapter3-audio3.m4a", 
+        nasa: null
+      },
+      { 
+        text: "Mom told me it was a solar storm. I wanted to know more.", 
+        img: "/chapter3/aria2.png", 
+        audio: "/chapter3/chapter3-audio4.m4a", 
+        nasa: null
+      }
     ]
   },
   {
