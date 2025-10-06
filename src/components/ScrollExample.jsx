@@ -123,7 +123,7 @@ const chapters = [
         img: "/chapter4/slide4.png", 
         audio: "/chapter4/chapter4-audio4.m4a", 
         nasa: { 
-          src: 'https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003847/STEREOnCME_HD1080.webmhd.webm', 
+          src: '/STEREOnCME_HD1080.webmhd.mp4', 
           alt: 'From the Sun to the Earth: STEREO tracks a CME', 
           caption: 'But don’t worry, Earth has a protective layer: the magnetosphere. And thanks to science, like that of NASA and NOAA, you can prepare. You can even see it in real time! Amazing, isn’t it?' 
         } 
