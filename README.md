@@ -1,9 +1,9 @@
-# 🌞 The Sun Whispers
+# 🌞 A Solar Tale
 
 *A digital storytelling experience inspired by the NASA Space Apps Challenge 2025 — "Stellar Stories: Space Weather Through the Eyes of Earthlings".*
 
 ## 👩🏽‍🚀 Project Overview
-**The Sun Whispers** is a digital children's story told from the perspective of the Sun — a cosmic narrator who speaks across cultures, centuries, and technologies. Through five poetic acts, the story traces humanity’s relationship with space weather, highlighting how solar activity affects life on Earth. From ancient myths to Galileo's telescope, and from space flares to a young girl’s curiosity, the tale blends science and storytelling.
+**A Solar Tale** is a digital children's story told from the perspective of the Sun — a cosmic narrator who speaks across cultures, centuries, and technologies. Through five poetic acts, the story traces humanity’s relationship with space weather, highlighting how solar activity affects life on Earth. From ancient myths to Galileo's telescope, and from space flares to a young girl’s curiosity, the tale blends science and storytelling.
 
 This project was built by the **HerCode** collective for NASA's 2025 Space Apps Challenge. It uses verified data and resources from NASA, NOAA, and other official institutions to introduce complex scientific concepts to children in an accessible, emotionally engaging format.
 
@@ -12,10 +12,10 @@ This project was built by the **HerCode** collective for NASA's 2025 Space Apps 
 ## 🧩 Structure of the Story
 The project is structured into five narrative acts:
 
-1. **Act I – I Am the Sun**: Cultural perspectives on the Sun across civilizations.
-2. **Act II – The Watched Sun**: Historical observations, Galileo, and heliophysics.
-3. **Act III – The Little Flare**: A CME leaves the Sun and impacts Earth.
-4. **Act IV – Aria’s Discovery**: A young girl connects with space weather data.
+1. **Act I – The Sun Introduces Itself**: Cultural perspectives on the Sun across civilizations.
+2. **Act II – The Sun Observed - Galileo's Eyes**: Historical observations, Galileo, and heliophysics.
+3. **Act III – The Little Flare - Aria Awakens**: A CME leaves the Sun and impacts Earth.
+4. **Act IV – Aria Discovers Space Weather**: A young girl connects with space weather data.
 5. **Act V – Guardians of the Sun**: The next generation rises to protect Earth.
 
 Each act appears as a visual screen/section on the website, using minimal UI and clean typography to enhance focus on the narration.
@@ -36,10 +36,10 @@ These links inform the vocabulary, scientific events, and impacts described in t
 ---
 
 ## 💻 Tech Stack
-- HTML5 + CSS3 (Vanilla)
+- HTML5, SCSS, REACT.JS and REACT-SCROLLAMA
 - Responsive Web Layout (Mobile-First)
-- Google Fonts: Space Mono
-- Ready for deployment via GitHub Pages / Netlify
+- Google Fonts: Poppins
+- Ready for deployment via Netlify
 
 ---
 
@@ -53,12 +53,6 @@ These links inform the vocabulary, scientific events, and impacts described in t
 
 ## 🧠 Team HerCode
 We are a women-led collective creating experiences at the intersection of technology, storytelling, and social impact.
-
-**Looking for:**
-- Developers (React or Vanilla JS for interactive expansion)
-- Animators / Visual Storytellers
-- Translators (English ↔ Spanish)
-- Educators for age-targeted adaptation
 
 ---
 
