@@ -30,7 +30,7 @@ const chapters = [
       },
       { 
         text: "I saw it clearly. The Sun, our majestic giant, was the center of everything.", 
-        img: "/chapter2/galileo2.png", 
+        img: "/chapter2/galileo2.jpg", 
         audio: "/chapter2/chapter2-audio2.m4a", 
         nasa: { 
           src: 'https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004892/SolarMax_AIA1700A_stand.HD1080i_p30.mp4', 
@@ -40,7 +40,7 @@ const chapters = [
       },
       { 
         text: "", 
-        img: "/chapter2/galileo3.png", 
+        img: "/chapter2/galileo3.jpg", 
         audio: "/chapter2/chapter2-audio3.mp3", 
         nasa: null 
       },
@@ -52,7 +52,7 @@ const chapters = [
       },
       { 
         text: "The planets danced around it, just as they do to this day.", 
-        img: "/chapter2/galileo5.png", 
+        img: "/chapter2/galileo5.jpg", 
         audio: "/chapter2/chapter2-audio5.m4a", 
         nasa: { 
           src: 'https://science.nasa.gov/wp-content/uploads/2023/10/edu-solar-system-large.png', 
@@ -68,7 +68,7 @@ const chapters = [
       { text: "", img: "/chapter3/chapter3.png", audio: "", nasa: null },
       { 
         text: "Sometimes, something inside me stirs. I become a burst of energy: a coronal mass ejection.", 
-        img: "/chapter3/sol1.png", 
+        img: "/chapter3/sol1.jpg", 
         audio: "/chapter3/chapter3-audio1.m4a", 
         nasa: null
       },
@@ -80,13 +80,13 @@ const chapters = [
       },
       { 
         text: "That morning, colors danced in the sky. The northern lights reached our city.", 
-        img: "/chapter3/aria1.png", 
+        img: "/chapter3/aria1.jpg", 
         audio: "/chapter3/chapter3-audio3.m4a", 
         nasa: null
       },
       { 
         text: "Mom told me it was a solar storm. I wanted to know more.", 
-        img: "/chapter3/aria2.png", 
+        img: "/chapter3/aria2.jpg", 
         audio: "/chapter3/chapter3-audio4.m4a", 
         nasa: null
       }
@@ -98,19 +98,19 @@ const chapters = [
       { text: "", img: "/chapter4/chapter4.png", audio: "", nasa: null },
       { 
         text: "I learned that space weather isn’t like the weather we know.", 
-        img: "/chapter4/slide1.png", 
+        img: "/chapter4/slide1.jpg", 
         audio: "/chapter4/chapter4-audio1.m4a", 
         nasa: null 
       },
       { 
         text: "It’s not about rain or heat, but about particles, magnetic fields, and energy traveling from the Sun.", 
-        img: "/chapter4/slide2.png", 
+        img: "/chapter4/slide2.jpg", 
         audio: "/chapter4/chapter4-audio2.m4a", 
         nasa: null
       },
       { 
         text: "I read about how astronauts prepare for storms.", 
-        img: "/chapter4/slide3.png", 
+        img: "/chapter4/slide3.jpg", 
         audio: "/chapter4/chapter4-audio3.m4a", 
         nasa: { 
           src: 'https://svs.gsfc.nasa.gov/vis/a010000/a012500/a012593/12593_Anthropogenic_Space_WeatherV1.mp4', 
@@ -120,7 +120,7 @@ const chapters = [
       },
       { 
         text: "About the satellites that observe the Sun and teach us about its movement.", 
-        img: "/chapter4/slide4.png", 
+        img: "/chapter4/slide4.jpg", 
         audio: "/chapter4/chapter4-audio4.m4a", 
         nasa: { 
           src: '/chapter4/STEREOnCME_HD1080.webmhd.mp4', 
@@ -130,7 +130,7 @@ const chapters = [
       },
       { 
         text: "That way they can warn us if a solar storm is approaching and prevent problems with airplane routes!", 
-        img: "/chapter4/slide5.png", 
+        img: "/chapter4/slide5.jpg", 
         audio: "/chapter4/chapter4-audio5.m4a", 
         nasa: { 
           src: 'https://science.nasa.gov/wp-content/uploads/2024/09/space-weather-effects-esa.jpg', 
@@ -140,7 +140,7 @@ const chapters = [
       },
       { 
         text: "By understanding space weather, we can predict all of this.", 
-        img: "/chapter4/slide6.png", 
+        img: "/chapter4/slide6.jpg", 
         audio: "/chapter4/chapter4-audio6.m4a", 
         nasa: null
       }
@@ -152,13 +152,13 @@ const chapters = [
       { text: "", img: "/chapter5/chapter5.png", audio: "", nasa: null },
       { 
         text: "Today I know that we can live in harmony with the Sun if we learn to listen to it.", 
-        img: "/chapter5/slide1.png", 
+        img: "/chapter5/slide1.jpg", 
         audio: "/chapter5/chapter5-audio1.m4a", 
         nasa: null
       },
       { 
         text: "There are people who dedicate their lives to understanding it: scientists, engineers, artists. I want to be one of them.", 
-        img: "/chapter5/slide2.png", 
+        img: "/chapter5/slide2.jpg", 
         audio: "/chapter5/chapter5-audio2.m4a", 
         nasa: null
       },
@@ -241,6 +241,7 @@ const ScrollamaDemo = () => {
       }, 100);
     }
     return () => { if (audioRef.current) audioRef.current.pause(); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentStepIndex, modalData.isOpen]);
 
   // render botón NASA si aplica
