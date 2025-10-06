@@ -198,6 +198,17 @@
 
 /* pequeño responsive tweak */
 @media (max-width: 900px) {
+    .btnNasa {
+        top: 160px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        img.gif-aria {
+            width: 80px;
+            height: auto;
+        }
+    }
+
     .vistaPrincipal {
         &__container {
             p {
@@ -230,8 +241,12 @@
     }
 
     .vistaCuento__scroll {
-        width: 90vw;
+        width: 100vw;
         margin-left: 0;
         padding: 40vh 5vw;
+
+        &__steps {
+            justify-content: center;
+        }
     }
 }
