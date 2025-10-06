@@ -315,9 +315,10 @@ const ScrollamaDemo = () => {
               `}
             />
           ))}
-          {renderNasaButton()}
         </div>
       </div>
+
+      {renderNasaButton()}
 
       {/* Scroll con Step (textos) */}
       <div className='vistaCuento__scroll'>

@@ -1,13 +1,10 @@
 .btnNasa {
-    position: absolute;
+    position: fixed; /* cambiar a fixed */
     top: 50px;
     left: 50px;
-    z-index: 20;
-    font-size: 1rem;
-    padding: 10px 20px;
+    z-index: 1000; /* asegurar que esté arriba */
+    pointer-events: auto;
     transition: opacity 0.3s ease, transform 0.3s ease-in-out;
-    opacity: 1;
-    transform: scale(1);
 
     img.gif-aria {
         width: 160px;
@@ -16,13 +13,13 @@
     }
 }
 
-.btnNasa:hover {
-    transform: scale(1.1);
-}
+// .btnNasa:hover {
+//     transform: scale(1.1);
+// }
 
-.btnNasa:active {
-    transform: scale(1);
-}
+// .btnNasa:active {
+//     transform: scale(1);
+// }
 
 .vistaPrincipal {
     position: fixed;
@@ -199,13 +196,11 @@
 /* pequeño responsive tweak */
 @media (max-width: 900px) {
     .btnNasa {
-        top: 160px;
+        top: 100px;
         left: 50%;
-        transform: translate(-50%, -50%);
-
+        transform: translateX(-50%);
         img.gif-aria {
             width: 80px;
-            height: auto;
         }
     }
 
