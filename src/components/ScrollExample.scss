@@ -21,69 +21,59 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: grid;
-    grid-template-columns: auto 60%;
     z-index: 100;
-    color: #fff;
-    text-align: center;
     background-image: url('/portada.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
 
     &__container {
-        display: grid;
-        grid-template-columns: 1fr 240px;
+        width: 100%;
+        height: 100%;
 
-        .info {
-            padding: 120px 0;
-
-            img {
-                width: 240px;
-            }
-
-            .btnStart {
-                background-color: #CD441F;
-                border: none;
-                border-radius: 100px;
-                transition: transform 0.3s ease-in-out; 
-                transform: scale(1);
-            }
-
-            .btnStart:hover {
-                transform: scale(1.1);
-                background-color: #9d3113;
-            }
-
-            .btnStart:active{
-                transform: scale(1);
-                background-color: #CD441F !important;
-                color: #fff;
-            }
+        img {
+            width: 240px;
         }
 
-        .github {
-            padding: 20px;
-
-            .btnGithub {
-                transition: transform 0.3s ease-in-out; 
-                transform: scale(1);
-            }
-
-            .btnGithub:hover {
-                transform: scale(1.1);
-            }
-
-            .btnGithub:active {
-                transform: scale(1);
-            }
-
-            img {
-                width: 120px;
-            }
-            
+        p {
+            width: 50%;
         }
-        
+
+        .btnStart {
+            background-color: #CD441F;
+            border: none;
+            border-radius: 100px;
+            transition: transform 0.3s ease-in-out; 
+            transform: scale(1);
+        }
+
+        .btnStart:hover {
+            transform: scale(1.1);
+            background-color: #9d3113;
+        }
+
+        .btnStart:active{
+            transform: scale(1);
+            background-color: #CD441F !important;
+            color: #fff;
+        }        
+    }
+
+    .btnGithub {
+        transition: transform 0.3s ease-in-out; 
+        transform: scale(1);
+
+        img {
+            width: 150px;
+        }
+    }
+
+    .btnGithub:hover {
+        transform: scale(1.1);
+    }
+
+    .btnGithub:active {
+        transform: scale(1);
     }
 }
 
@@ -179,18 +169,27 @@
 
 /* pequeño responsive tweak */
 @media (max-width: 900px) {
-  .chapter-title-sticky {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .chapter-title-sticky__img {
-    width: 280px;
-    height: auto;
-  }
+    .vistaPrincipal {
+        &__container {
+            p {
+                width: 90%;
+            }
+        }
+    }
 
-  .vistaCuento__scroll {
-    width: 90vw;
-    margin-left: 0;
-    padding: 40vh 5vw;
-  }
+    .chapter-title-sticky {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .chapter-title-sticky__img {
+        width: 280px;
+        height: auto;
+    }
+
+    .vistaCuento__scroll {
+        width: 90vw;
+        margin-left: 0;
+        padding: 40vh 5vw;
+    }
 }

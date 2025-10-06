@@ -45,7 +45,7 @@ const chapters = [
         nasa: null 
       },
       { 
-        text: "Shh! This was a revolutionary moment. Before, they believed everything revolved around Earth… but Copernicus and Galileo looked beyond!", 
+        text: "This was a revolutionary moment. Before, they believed everything revolved around Earth… but Copernicus and Galileo looked beyond!", 
         img: "/chapter2/galileo4.gif", 
         audio: "/chapter2/chapter2-audio4.m4a", 
         nasa: null 
@@ -150,10 +150,34 @@ const chapters = [
     title: '/chapter5/chapter5.png',
     slides: [
       { text: "", img: "/chapter5/chapter5.png", audio: "", nasa: null },
-      { text: "I am the sun.", img: "/chapter5/sol.png", audio: "/chapter5/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter5/sol.png", audio: "/chapter5/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter5/sol.png", audio: "/chapter5/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } },
-      { text: "I am the sun.", img: "/chapter5/sol.png", audio: "/chapter5/audio1.m4a", nasa: { src: 'https://science.nasa.gov/wp-content/uploads/2024/08/sep-activeregion-closeup.mp4', alt: 'Solar eruptions', caption: 'This image was captured thanks to space technology...' } }
+      { 
+        text: "Today I know that we can live in harmony with the Sun if we learn to listen to it.", 
+        img: "/chapter5/slide1.png", 
+        audio: "/chapter5/chapter5-audio1.m4a", 
+        nasa: null
+      },
+      { 
+        text: "There are people who dedicate their lives to understanding it: scientists, engineers, artists. I want to be one of them.", 
+        img: "/chapter5/slide2.png", 
+        audio: "/chapter5/chapter5-audio2.m4a", 
+        nasa: null
+      },
+      { 
+        text: "Because when we understand the sky, we also understand how to take care of ourselves on Earth. And that is something we must all learn.", 
+        img: "/chapter5/slide3.gif", 
+        audio: "/chapter5/chapter5-audio3.m4a", 
+        nasa: { 
+          src: 'https://images-assets.nasa.gov/image/PIA26681/PIA26681~medium.jpg', 
+          alt: 'Image of Sun From NASA\'s Solar Dynamics Observatory', 
+          caption: 'I have seen civilizations rise, telescopes point to the sky, and children ask questions. From here, I watch over you without being fully seen. I am one star among many, but for you… I am the Sun.' 
+        } 
+      },
+      { 
+        text: "", 
+        img: "/chapter5/final-title.png", 
+        audio: "/chapter5/chapter5-audio4.m4a", 
+        nasa: null 
+      }
     ]
   }
 ];
@@ -242,22 +266,19 @@ const ScrollamaDemo = () => {
   if (!hasInteracted) {
     return (
       <div className='vistaPrincipal'>
-        <div></div>
-        <div className=' vistaPrincipal__container'>
-          <div className='w-75 info d-flex flex-column align-items-start justify-content-start gap-4'>
-            <img src="./logo-a-solar-tale.png" alt="logo" />
-            <p className='m-0 p-0 text-start text-dark'>
-              A digital storytelling experience inspired by the NASA Space Apps 
-              Challenge 2025 — "Stellar Stories: Space Weather Through the Eyes of Earthlings".
-            </p>
-            <Button className='btn btnStart' size="lg" onClick={() => setHasInteracted(true)}>
-              Watch the experience ☀️
-            </Button>
-          </div>
-          <div className='github d-flex align-items-start justify-content-end'>
+        <div className=' vistaPrincipal__container d-flex flex-column align-items-center justify-content-center gap-5'>
+          <img src="./logo-a-solar-tale.png" alt="logo" />
+          <p className='m-0 p-0 text-white text-center'>
+            A digital storytelling experience inspired by the NASA Space Apps 
+            Challenge 2025 — "Stellar Stories: Space Weather Through the Eyes of Earthlings".
+          </p>
+          <div className='d-flex flex-column flex-md-row gap-5 align-items-center'>
             <a className='btnGithub' target='_blank' rel="noreferrer" href="https://github.com/AliceRamirez17/the-sun-whispers">
               <img src='./logo-github.png' alt='github repository'/>
             </a>
+            <Button className='btn btnStart' size="lg" onClick={() => setHasInteracted(true)}>
+              Watch the experience ☀️
+            </Button>
           </div>
         </div>
       </div>
