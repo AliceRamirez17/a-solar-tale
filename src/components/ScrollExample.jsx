@@ -273,7 +273,7 @@ const ScrollamaDemo = () => {
             Challenge 2025 — "Stellar Stories: Space Weather Through the Eyes of Earthlings".
           </p>
           <div className='d-flex flex-column flex-md-row gap-5 align-items-center'>
-            <a className='btnGithub' target='_blank' rel="noreferrer" href="https://github.com/AliceRamirez17/the-sun-whispers">
+            <a className='btnGithub' target='_blank' rel="noreferrer" href="https://github.com/AliceRamirez17/a-solar-tale">
               <img src='./logo-github.png' alt='github repository'/>
             </a>
             <Button className='btn btnStart' size="lg" onClick={() => setHasInteracted(true)}>
