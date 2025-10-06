@@ -48,7 +48,7 @@ const NasaModal = ({ show, handleClose, content }) => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title>Datos del Sol de la NASA 🚀</Modal.Title>
+        <Modal.Title>NASA Sun Data 🚀</Modal.Title>
       </Modal.Header>
       
       <Modal.Body>
@@ -66,7 +66,7 @@ const NasaModal = ({ show, handleClose, content }) => {
       
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
-          Cerrar y Continuar Historia
+          Close and Continue Story
         </Button>
       </Modal.Footer>
     </Modal>
