@@ -182,7 +182,7 @@ const chapters = [
   }
 ];
 
-const chapterStartIndices = [0, 8, 14, 19, 26]; // índices donde está el título de cada chapter
+const chapterStartIndices = [0, 8, 14, 19, 26];
 
 const ScrollamaDemo = () => {
   const [hasInteracted, setHasInteracted] = useState(false);
@@ -257,7 +257,9 @@ const ScrollamaDemo = () => {
   // sticky: aparece solo si currentStepIndex no es inicio de capítulo
   const shouldShowSticky = () => {
     if (currentStepIndex === null) return false;
-    return !chapterStartIndices.includes(currentStepIndex);
+    if (chapterStartIndices.includes(currentStepIndex)) return false;
+    if (currentStepIndex === allSlides.length - 1) return false;
+    return true;
   };
 
   const currentChapter = getCurrentChapter(currentStepIndex);
@@ -305,7 +307,12 @@ const ScrollamaDemo = () => {
               key={idx}
               src={slide.img}
               alt="Slide visual"
-              className={`slide-image ${idx === currentStepIndex ? "active" : ""}`}
+              className={`
+                slide-image 
+                ${idx === currentStepIndex ? "active" : ""} 
+                ${chapterStartIndices.includes(idx) ? "chapter-title-slide" : ""} 
+                ${idx === allSlides.length - 1 ? "last-slide" : ""}
+              `}
             />
           ))}
           {renderNasaButton()}
